@@ -1,5 +1,5 @@
 {% set name = "rmsd" %}
-{% set version = "1.4" %}
+{% set version = "1.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 16a84a5f919faa0f2361e55ad4009a7c28e19a21ee9cc3bdb83f28ffb566563f
+  sha256: fe24448afed19adc258789ada8883584965fe80bf7a312bbc74825aaefb5be8e
 
 build:
   noarch: python
