@@ -6,26 +6,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c0342821432aac10e98089877875a2cd8bbf624163971076d93686a40f10d127
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - calculate_rmsd = rmsd.calculate_rmsd:main
 
 requirements:
   host:
-    - python  >=3.8
+    - python {{ python_min }}
     - pip
   run:
-    - python  >=3.8
+    - python >={{ python_min }}
     - numpy
     - scipy
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - rmsd
   commands:
